@@ -1,10 +1,10 @@
 package exercicio_aula2;
 // INSERIR PACOTE SE NECESSARIO
 
-public class CalculadoraPag {
+public class CalculadoraPagamento {
     
     float resultado = 0; 
-    public CalculadoraPag(String nome, int idade,
+    public CalculadoraPagamento(String nome, int idade,
             String dataNascimento,float salario){
         Funcionario funcionario = new Funcionario();
         funcionario.dataNascimento = dataNascimento;
@@ -16,7 +16,7 @@ public class CalculadoraPag {
 		}catch(Exception i){
 			System.out.println("erro na validaçao");
 		}
-        resultado = calcula(funcionario);
+        resultado = calculaSalario(funcionario);
     }
     
 	void validaFuncionario(Funcionario funcionario) throws Exception{
@@ -28,16 +28,12 @@ public class CalculadoraPag {
     public float retornaCalculoFuncionario(){
         return resultado;
     }
-    // esse metodo calcula o salario do funcionario
-    private float calcula(Funcionario funcionario){
-		
-		
+    private float calculaSalario(Funcionario f){
         float r = 0;
-        if(funcionario.salario < 1000){
-            r = (funcionario.salario * 0.1f) + funcionario.salario;
-        }
-        if(funcionario.salario > 1000){
-            r = (funcionario.salario * 0.2f) + funcionario.salario;
+        if(f.salario < 1000){
+            r = (f.salario * 0.1f) + f.salario;
+        }else{
+            r = (f.salario * 0.2f) + f.salario;
         }
         
         return r;        
