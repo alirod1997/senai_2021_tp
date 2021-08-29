@@ -4,13 +4,12 @@ package exercicio_aula2;
 public class CalculadoraPagamento {
     
     float resultado = 0; 
-    public CalculadoraPagamento(String nome, int idade,
-            String dataNascimento,float salario){
+    public CalculadoraPagamento(CalculadoraPagamentoParameter parameterObject){
         Funcionario funcionario = new Funcionario();
-        funcionario.dataNascimento = dataNascimento;
-        funcionario.idade = idade;
-        funcionario.nome = nome;
-        funcionario.salario = salario;    
+        funcionario.dataNascimento = parameterObject.dataNascimento;
+        funcionario.idade = parameterObject.idade;
+        funcionario.nome = parameterObject.nome;
+        funcionario.salario = parameterObject.salario;    
 		try{
 			validaFuncionario(funcionario);
 		}catch(Exception i){
@@ -28,15 +27,17 @@ public class CalculadoraPagamento {
     public float retornaCalculoFuncionario(){
         return resultado;
     }
-    private float calculaSalario(Funcionario f){
-        float r = 0;
-        if(f.salario < 1000){
-            r = (f.salario * 0.1f) + f.salario;
+    private float calculaSalario(Funcionario funcionario){
+        float resultado = 0;
+        if(funcionario.salario < 1000){
+            float umPorcento = 0.1f;
+			resultado = (funcionario.salario * umPorcento) + funcionario.salario;
         }else{
-            r = (f.salario * 0.2f) + f.salario;
+            float doisPorcento = 0.2f;
+			resultado = (funcionario.salario * doisPorcento) + funcionario.salario;
         }
         
-        return r;        
+        return resultado;        
     }
     
 }

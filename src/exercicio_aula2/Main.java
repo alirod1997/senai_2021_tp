@@ -4,10 +4,9 @@ package exercicio_aula2;
 public class Main {
 
 	public static void main(String[] args) {
-		CalculadoraPagamento c = new CalculadoraPagamento("maria",
-                        30, "26/06/1990", 500);
-                float ret = c.retornaCalculoFuncionario();
-                System.out.println("salario: " + ret);
+		CalculadoraPagamento calculadoraPagamento = new CalculadoraPagamento(new CalculadoraPagamentoParameter("maria", 30, "26/06/1990", 500));
+                float retorno = calculadoraPagamento.retornaCalculoFuncionario();
+                System.out.println("salario: " + retorno);
 	}
 
 }
