@@ -5,7 +5,7 @@ public class CalculadoraPagamento {
     
     float resultado = 0; 
     public CalculadoraPagamento(CalculadoraPagamentoParameter parameterObject){
-        Funcionario funcionario = new Funcionario();
+        Usuario funcionario = new Usuario();
         funcionario.dataNascimento = parameterObject.dataNascimento;
         funcionario.idade = parameterObject.idade;
         funcionario.nome = parameterObject.nome;
@@ -13,12 +13,12 @@ public class CalculadoraPagamento {
 		try{
 			validaFuncionario(funcionario);
 		}catch(Exception i){
-			System.out.println("erro na validaçao");
+			System.out.println("erro na validaï¿½ao");
 		}
         resultado = calculaSalario(funcionario);
     }
     
-	void validaFuncionario(Funcionario funcionario) throws Exception{
+	void validaFuncionario(Usuario funcionario) throws Exception{
 		if(funcionario.nome.equals("") || funcionario.idade == 0){
 			throw new Exception("error funcionario");
 		}
@@ -27,7 +27,7 @@ public class CalculadoraPagamento {
     public float retornaCalculoFuncionario(){
         return resultado;
     }
-    private float calculaSalario(Funcionario funcionario){
+    private float calculaSalario(Usuario funcionario){
         float resultado = 0;
         if(funcionario.salario < 1000){
             float umPorcento = 0.1f;
