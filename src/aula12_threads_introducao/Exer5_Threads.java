@@ -14,12 +14,20 @@ public class Exer5_Threads extends Thread {
 
 	public void run() {
 		while (true) {
-			System.out.println("executando a thread " + getName() + new Date());
-			String nome = JOptionPane.showInputDialog("digite seu nome: ");
-			JOptionPane.showMessageDialog(null, "seu nome é: " + nome);
-			if (nome.equals("sair")) {
-				break;
-			} 
+			//suspensao de threads 
+			//sempre deve conter o bloco try-catch, pois dispara uma exception
+			try {
+				Thread.sleep(3000l);//tempo que vai ficar suspenso, segundos
+				System.out.println("executando a thread " + getName() + new Date());
+				String nome = JOptionPane.showInputDialog("digite seu nome: ");
+				JOptionPane.showMessageDialog(null, "seu nome é: " + nome);
+				if (nome.equals("sair")) {
+					break;
+				} 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 }
